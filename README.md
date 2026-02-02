@@ -77,3 +77,23 @@ class ExampleServiceTest {
     }
 }
 ```
+
+## Parser skeleton
+
+- Base interface: `Parser<T>` in `src/main/java/com/example/testservice/parser`.
+- Example implementation: `KeyValueParser` parses `key=value` lines into a `Map`.
+- Custom parser flow: create a class that implements `Parser<T>` and add tests under `src/test/java`.
+
+Example usage:
+
+```
+KeyValueParser parser = new KeyValueParser();
+Map<String, String> result = parser.parse("name=service\nversion=1");
+```
+
+## Writing parser tests
+
+- Create a test class `YourParserTest` in `src/test/java/com/example/testservice/parser`.
+- Use `@Test` methods for each behavior.
+- Include a success case and at least one invalid input case.
+- Run with `./gradlew test`.
